@@ -1,0 +1,36 @@
+name: Pak Laeseblik ud
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'Laeseblik-GitHub.zip'
+      - '.github/workflows/udpak-laeseblik.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  udpak:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Hent repository
+        uses: actions/checkout@v4
+
+      - name: Pak hjemmesiden ud
+        shell: bash
+        run: |
+          if [ ! -f Laeseblik-GitHub.zip ]; then
+            echo 'ZIP-filen er allerede pakket ud.'
+            exit 0
+          fi
+          unzip -oq Laeseblik-GitHub.zip -d .
+          rm -f Laeseblik-GitHub.zip
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add -A
+          if ! git diff --cached --quiet; then
+            git commit -m 'Installer Laeseblik hjemmeside'
+            git push origin HEAD:main
+          fi
