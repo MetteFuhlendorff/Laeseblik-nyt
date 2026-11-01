@@ -483,7 +483,7 @@ body.lbx-calm{background:#fffdfa!important}body.lbx-calm *{animation:none!import
 @media(max-width:820px){.lbx-self-grid{grid-template-columns:1fr}.lbx-reading-map-head{grid-template-columns:1fr}.lbx-reading-map-grid{grid-template-columns:repeat(2,1fr)}}
 @media(max-width:560px){.lbx-self-card,.lbx-reading-map{padding:15px}.lbx-card-head{display:block}.lbx-phase-switch{width:max-content;margin-top:8px}.lbx-rating-row{grid-template-columns:1fr}.lbx-reading-map-grid{grid-template-columns:1fr}.lbx-compare-row{grid-template-columns:105px 1fr 30px}.lbx-help-panel{top:62px;right:12px}.lbx-word-panel{padding:17px;margin:3vh auto;max-height:94vh}}
 
-/* Prisområdet: tydelig værdi før pris */
+/* Generelle layoutregler */
 .price-head{align-items:end}
 .price-start{
   display:flex;justify-content:space-between;gap:18px;align-items:center;
@@ -717,8 +717,28 @@ header{background:#fcfbf7!important}header nav a{font-size:.88rem!important}
 .material-icon,.library-icon,.story-note-icon{min-height:0!important;max-width:48px!important;max-height:48px!important}
 .lbx-self-section,section.lab,.library-section,.story-section{padding-top:clamp(30px,4vw,56px)!important;padding-bottom:clamp(30px,4vw,56px)!important;min-height:0!important}
 @media(max-width:700px){.lb-page-overview .wrap{display:block}.lb-overview-title{margin-bottom:11px}.lb-overview-links{display:grid;grid-template-columns:repeat(2,minmax(0,1fr))}.lb-overview-links a{font-size:.68rem!important;min-width:0;overflow-wrap:anywhere}.lb-search-link span{display:none}}
-</style></head>
-<body class="lb-refresh lb-area-lab"><div style="position:relative;z-index:2000;background:#304f44;color:#fff;text-align:center;padding:9px 12px;font:600 14px Arial,sans-serif"><a href="../index.html" style="color:#fff;text-decoration:underline">← Til Læsebliks nye forside og læseguide</a></div>
+</style><style id="lb-qa-nav-fix">
+/* Lanceringskontrol: undgå overlap mellem menu, søgning og læsehjælp */
+@media (min-width:1241px) and (max-width:1500px){
+  .site-header .header-inner{gap:9px}
+  .site-header .brand{min-width:180px}
+  .site-header .nav{gap:6px;font-size:13px;flex:1 1 auto}
+  .site-header .nav>a{font-size:13px;white-space:nowrap}
+  .site-header .lb-search-link{padding:8px 9px;flex-shrink:0}
+  .site-header .reading-help-btn{padding:8px 10px;font-size:12px;flex-shrink:0}
+}
+@media (min-width:1001px) and (max-width:1240px){
+  .site-header .nav{display:none}
+  .site-header .menu-btn{display:block;margin-left:auto;flex-shrink:0}
+  .site-header .nav.open{display:flex;position:absolute;top:82px;left:0;right:0;background:#fbf9f4;padding:16px 24px;flex-direction:column;align-items:stretch;gap:3px;box-shadow:0 14px 24px rgba(30,58,42,.12);z-index:150}
+  .site-header .nav.open>a{padding:10px 8px}
+}
+@media(max-width:1000px){
+  .site-header .nav.open{z-index:150;box-shadow:0 14px 24px rgba(30,58,42,.12)}
+}
+</style>
+</head>
+<body class="lb-refresh lb-area-lab">
 <a class="skip-link" href="#main">
    Gå til indhold
   </a>
@@ -744,7 +764,7 @@ header{background:#fcfbf7!important}header nav a{font-size:.88rem!important}
       </small>
 </span>
 </a>
-<nav aria-label="Hovedmenu" class="nav" id="nav"><a class="" href="../">Forside</a><a class="" href="../laeseguiden/">Læseguiden</a><a class="" href="../studieveje/">Studieveje</a><a class="" href="../lydforloeb/">Lydforløb</a><a aria-current="page" class="active" href="../praksislab/">Praksislab</a><a class="" href="../vaerktoejer/">Materialebank</a><a class="" href="../om-mette/">Om Mette</a><a class="" href="../kontakt/">Kontakt</a></nav>
+<nav aria-label="Hovedmenu" class="nav" id="nav"><a class="" href="../">Forside</a><a class="" href="../laeseguiden/">Læseblik-guiderne</a><a class="" href="../studieveje/">Studieveje</a><a class="" href="../lydforloeb/">Lydforløb</a><a aria-current="page" class="active" href="../praksislab/">Praksislab</a><a class="" href="../vaerktoejer/">Materialebank</a><a class="" href="../om-mette/">Om Mette</a><a class="" href="../kontakt/">Kontakt</a></nav>
 <a aria-label="Søg i Læseblik" class="lb-search-link" href="../soeg/"><svg aria-hidden="true" class="lb-icon" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.7" viewbox="0 0 24 24"><circle cx="11" cy="11" r="8"></circle><path d="m21 21-4.35-4.35"></path></svg><span>Søg</span></a><button aria-controls="lbxHelpPanel" aria-expanded="false" class="reading-help-btn" id="lbxHelpBtn" title="Tilpas tekst, ro og læsning" type="button">
 <span aria-hidden="true">
       Aa
@@ -2771,5 +2791,5 @@ if(contactBox){const mailBtn=document.createElement('button');mailBtn.type='butt
   });
 })();
   </script>
-<footer class="lab-modern-footer"><strong>Læseblik</strong><p>Faglige guides, didaktiske øvelser og praksisnær vejledning til studerende.</p><nav><a href="../laeseguiden/">Læseguiden</a> · <a href="../studieveje/">Studieveje</a> · <a href="../om-mette/">Om Mette</a></nav></footer></body>
+<footer class="lab-modern-footer"><strong>Læseblik</strong><p>Faglige guides, didaktiske øvelser og praksisnær vejledning til studerende.</p><nav><a href="../laeseguiden/">Læseblik-guiderne</a> · <a href="../studieveje/">Studieveje</a> · <a href="../om-mette/">Om Mette</a></nav></footer></body>
 </html>
