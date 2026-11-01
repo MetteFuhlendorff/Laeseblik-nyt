@@ -11,3 +11,56 @@
  document.querySelectorAll('[data-print]').forEach(b=>b.addEventListener('click',()=>window.print()));
  document.querySelectorAll('[data-copy-link]').forEach(b=>b.addEventListener('click',async()=>{try{await navigator.clipboard.writeText(location.href);b.textContent='Link kopieret ✓'}catch(e){b.textContent='Kopiér adressen fra browseren'}}));
 })();
+
+
+/* Læseblik: søgning i siteindhold samt aktive indholdslinks. */
+(()=>{
+  const pageRoot=new URL('../../',new URL(document.currentScript?.src||document.querySelector('script[src*="main.js"]')?.src||location.href));
+  document.querySelectorAll('.lb-search-link').forEach(a=>{a.href=new URL('soeg/',pageRoot).href});
+  const input=document.querySelector('#lb-site-query');
+  const output=document.querySelector('#lb-search-results');
+  if(input&&output){
+    const entries=window.LAESEBLIK_SEARCH_INDEX||[];
+    const count=document.querySelector('#lb-search-count');
+    const buttons=[...document.querySelectorAll('[data-search-category]')];
+    const normalize=s=>(s||'').toLocaleLowerCase('da').normalize('NFD').replace(/[\u0300-\u036f]/g,'');
+    let current='alle';
+    let lastQ='';
+    const getScore=(obj,words)=>{
+      const title=normalize(obj.title),desc=normalize(obj.description),all=normalize(obj.keywords);
+      if(!words.every(w=>title.includes(w)||desc.includes(w)||all.includes(w)||normalize(obj.section).includes(w)))return -1;
+      return words.reduce((n,w)=>n+(title.includes(w)?12:0)+(desc.includes(w)?5:0)+(all.includes(w)?1:0),0);
+    };
+    const render=()=>{
+      const q=input.value.trim();lastQ=q;
+      const words=normalize(q).split(/\s+/).filter(Boolean);
+      const found=entries.filter(x=>current==='alle'||x.category===current)
+        .map(x=>({item:x,score:getScore(x,words)})).filter(x=>x.score>=0)
+        .sort((a,b)=>b.score-a.score||a.item.title.localeCompare(b.item.title,'da'));
+      output.replaceChildren();
+      if(count)count.textContent=found.length+' '+(found.length===1?'resultat':'resultater')+(q?' for "'+q+'"':'');
+      if(!found.length){const p=document.createElement('p');p.className='lb-search-empty';p.textContent='Ingen resultater. Prøv fx "tekst", "LST", "ordblindhed" eller "opgaveskrivning".';output.append(p);return;}
+      found.forEach(({item})=>{
+        const a=document.createElement('a');a.className='lb-result-card';a.href=new URL(item.url,pageRoot).href;
+        const cat=document.createElement('span');cat.className='lb-result-category';cat.textContent=item.section;
+        const h=document.createElement('strong');h.textContent=item.title;
+        const p=document.createElement('span');p.className='lb-result-description';p.textContent=item.description||item.keywords.slice(0,180);
+        a.append(cat,h,p);output.append(a);
+      });
+    };
+    const initial=new URLSearchParams(location.search).get('q');if(initial)input.value=initial;
+    input.addEventListener('input',render);
+    document.querySelector('#lb-search-form')?.addEventListener('submit',e=>{e.preventDefault();const u=new URL(location.href);u.searchParams.set('q',input.value.trim());history.replaceState({},'',u);render()});
+    buttons.forEach(b=>b.addEventListener('click',()=>{buttons.forEach(t=>{t.classList.toggle('selected',t===b);t.setAttribute('aria-pressed',t===b?'true':'false')});current=b.dataset.searchCategory;render()}));
+    render();
+  }
+  const sidebar=document.querySelector('.sidebar');
+  if(sidebar&&'IntersectionObserver' in window){
+    const anchors=[...sidebar.querySelectorAll('a[data-toc-link]')];
+    const ids=anchors.map(a=>document.getElementById(a.getAttribute('href').slice(1))).filter(Boolean);
+    const ob=new IntersectionObserver(entries=>{entries.forEach(e=>{if(e.isIntersecting){anchors.forEach(a=>a.classList.toggle('lb-toc-active',a.getAttribute('href')==='#'+e.target.id))}})},{rootMargin:'-18% 0px -68% 0px',threshold:0});ids.forEach(s=>ob.observe(s));
+  }
+  document.addEventListener('keydown',e=>{
+    if(e.key==='/'&&!e.ctrlKey&&!e.metaKey&&!e.altKey&&!["INPUT","TEXTAREA"].includes(document.activeElement?.tagName)&&!document.activeElement?.isContentEditable){e.preventDefault();location.href=new URL('soeg/',pageRoot).href;}
+  });
+})();
