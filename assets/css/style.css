@@ -296,3 +296,17 @@ body.lb-area-profil .lb-page-hero-copy h1 {
 .lb-area-guide #guide-grid > .lb-guide-priority p{font-size:1rem;line-height:1.65;max-width:66ch;color:#3f5748}
 .lb-area-guide #guide-grid > .lb-guide-priority .link{font-size:.94rem;text-decoration:underline;text-underline-offset:3px}
 @media(max-width:580px){.lb-area-guide #guide-grid > .lb-guide-priority{grid-column:span 1;padding:25px;border-left-width:3px}}
+
+/* To reelle studieveje. Undgå et tomt tredje kolonnefelt. */
+.lb-two-study-paths{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:clamp(18px,2.4vw,32px)}
+.lb-two-study-paths > *{min-width:0}
+@media(max-width:700px){.lb-two-study-paths{grid-template-columns:1fr}}
+.lb-two-study-paths a:focus-visible,.lb-audience-pill:focus-visible{outline:3px solid #37664a;outline-offset:4px}
+.lbx-method-note{margin-top:1rem;max-width:75ch;line-height:1.7}
+/* Selvstændig læsehenvisning efter de to målgrupper. */
+.lbx-reading-further{margin-top:24px;padding:21px 24px;border:1px solid #dbe6dc;background:#fafbf7;border-radius:15px;max-width:820px}
+.lbx-reading-further h3{margin-top:0}
+
+/* Store overskrifter brydes ved ordmellemrum frem for midt i danske fagord. */
+.lb-refresh .page-hero h1,.lb-refresh .lb-page-hero-copy h1{hyphens:none;-webkit-hyphens:none;overflow-wrap:normal;word-break:normal}
+@media(max-width:580px){.lb-refresh .page-hero h1,.lb-refresh .lb-page-hero-copy h1{font-size:clamp(2rem,8vw,2.8rem)}}

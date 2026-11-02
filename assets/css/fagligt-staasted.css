@@ -25,3 +25,7 @@
 .lb-standpoint-end{display:flex;justify-content:space-between;align-items:center;gap:35px}.lb-standpoint-end .actions{flex:none;display:flex;flex-wrap:wrap}
 @media(max-width:900px){.lb-standpoint-grid,.lb-source-grid{grid-template-columns:1fr}.lb-standpoint-path-grid{grid-template-columns:1fr}.lb-path-simple{min-height:0}.lb-standpoint-end{display:block}.lb-standpoint-end .actions{margin-top:20px}}
 @media(max-width:620px){.lb-area-faglighed .lb-page-photo{max-height:300px}.lb-area-faglighed .lb-page-photo img{max-height:300px}.lb-path-simple{padding:22px}}
+
+/* De to aktive uddannelser får samme visuelle vægt. */
+.lb-standpoint-path-grid.lb-two-study-paths{grid-template-columns:repeat(2,minmax(0,1fr))}
+@media(max-width:900px){.lb-standpoint-path-grid.lb-two-study-paths{grid-template-columns:1fr}}
