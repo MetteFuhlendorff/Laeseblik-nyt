@@ -1017,7 +1017,7 @@ header{background:#fcfbf7!important}header nav a{font-size:.88rem!important}
 <p>
         Indsæt en tekst. Få den læst højt, del den i mindre bidder eller markér lange ord.
        </p>
-<textarea id="textInput">På vej hjem fra skole lagde Alma mærke til, at luften duftede anderledes end om morgenen. Mørke skyer trak ind over byen, og bladene på træerne vendte deres lyse underside opad. Hun satte farten op, for hun vidste, hvad tegnene kunne betyde.</textarea>
+<textarea id="textInput" aria-label="Tekst til oplæsning og arbejde i Tekstkompasset">På vej hjem fra skole lagde Alma mærke til, at luften duftede anderledes end om morgenen. Mørke skyer trak ind over byen, og bladene på træerne vendte deres lyse underside opad. Hun satte farten op, for hun vidste, hvad tegnene kunne betyde.</textarea>
 <div class="tool-row">
 <button class="small-btn primary" id="readBtn" type="button">
          Læs højt
@@ -1399,10 +1399,10 @@ header{background:#fcfbf7!important}header nav a{font-size:.88rem!important}
          </span>
 </div>
 <div class="story-actions">
-<a aria-label="Åbn LÆSEKODEN som digital flipbog i nyt faneblad" class="btn primary" data-lbx-book="laesekoden" href="#" title="Åbner i nyt faneblad">
+<a aria-label="Åbn Læsekoden som digital flipbog" class="btn primary" data-lbx-book="laesekoden" href="../boeger/laesekoden/" title="Åbn den digitale bog">
           Læs som flipbog
          </a>
-<a class="btn secondary" data-lbx-pdf="laesekoden" href="#">
+<a class="btn secondary" data-lbx-pdf="laesekoden" href="../assets/pdf/Laesekoden_Asta_og_Malik.pdf" download="Laesekoden_Asta_og_Malik.pdf">
           Hent PDF
          </a>
 </div>
@@ -1440,10 +1440,10 @@ header{background:#fcfbf7!important}header nav a{font-size:.88rem!important}
          </span>
 </div>
 <div class="story-actions">
-<a aria-label="Åbn MIN LÆSEVEJ som digital flipbog i nyt faneblad" class="btn primary" data-lbx-book="minlaesevej" href="#" title="Åbner i nyt faneblad">
+<a aria-label="Åbn Min læsevej som digital flipbog" class="btn primary" data-lbx-book="minlaesevej" href="../boeger/min-laesevej/" title="Åbn den digitale bog">
           Læs som flipbog
          </a>
-<a class="btn secondary" data-lbx-pdf="minlaesevej" href="#">
+<a class="btn secondary" data-lbx-pdf="minlaesevej" href="../assets/pdf/Min_laesevej_Lea_og_Jonas.pdf" download="Min_laesevej_Lea_og_Jonas.pdf">
           Hent PDF
          </a>
 </div>
@@ -2765,13 +2765,13 @@ if(contactBox){const mailBtn=document.createElement('button');mailBtn.type='butt
     laesekoden: {
       title: "LÆSEKODEN",
       book: "../boeger/laesekoden/",
-      pdf: "https://raw.githubusercontent.com/MetteFuhlendorff/Laeseblik/main/Laesekoden_Asta_og_Malik.pdf",
+      pdf: "../assets/pdf/Laesekoden_Asta_og_Malik.pdf",
       pdfName: "Laesekoden_Asta_og_Malik.pdf"
     },
     minlaesevej: {
       title: "MIN LÆSEVEJ",
       book: "../boeger/min-laesevej/",
-      pdf: "https://raw.githubusercontent.com/MetteFuhlendorff/Laeseblik/main/Min_laesevej_Lea_og_Jonas.pdf",
+      pdf: "../assets/pdf/Min_laesevej_Lea_og_Jonas.pdf",
       pdfName: "Min_laesevej_Lea_og_Jonas.pdf"
     }
   };

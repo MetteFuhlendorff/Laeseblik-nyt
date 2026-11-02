@@ -288,3 +288,11 @@ body.lb-area-profil .lb-page-hero-copy h1 {
   overflow-wrap: normal;
   word-break: normal;
 }
+
+
+/* Én redaktionelt prioriteret guide. De øvrige guider bevarer deres normale kort og filtre. */
+.lb-area-guide #guide-grid > .lb-guide-priority{grid-column:span 2; padding:clamp(27px,3vw,39px);border-left:4px solid #587864;background:#eaf2ea;box-shadow:none;gap:17px}
+.lb-area-guide #guide-grid > .lb-guide-priority h3{font-family:Georgia,serif;font-weight:normal;font-size:clamp(1.5rem,2.3vw,2rem);line-height:1.2;max-width:24ch}
+.lb-area-guide #guide-grid > .lb-guide-priority p{font-size:1rem;line-height:1.65;max-width:66ch;color:#3f5748}
+.lb-area-guide #guide-grid > .lb-guide-priority .link{font-size:.94rem;text-decoration:underline;text-underline-offset:3px}
+@media(max-width:580px){.lb-area-guide #guide-grid > .lb-guide-priority{grid-column:span 1;padding:25px;border-left-width:3px}}
