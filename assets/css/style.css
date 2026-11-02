@@ -280,3 +280,11 @@ body.lb-praksislab .tool,body.lb-praksislab .exemplar-card{min-height:unset;}
 @media(max-width:800px){.lb-refresh .lb-overview-links{grid-template-columns:repeat(2,minmax(0,1fr))}}
 @media(max-width:560px){.lb-refresh .lb-page-overview{padding:20px 0}.lb-refresh .lb-overview-links,.lb-refresh.lb-area-profil .lb-overview-links{grid-template-columns:1fr}.lb-refresh .lb-overview-links a{font-size:.95rem;min-height:50px;padding:12px 14px}}
 @media(prefers-reduced-motion:reduce){.lb-area-forside .lb-starter-links a{transition:none}}
+
+/* Om Mette: store overskrifter brydes kun mellem hele ord. */
+body.lb-area-profil .lb-page-hero-copy h1 {
+  hyphens: none;
+  -webkit-hyphens: none;
+  overflow-wrap: normal;
+  word-break: normal;
+}
