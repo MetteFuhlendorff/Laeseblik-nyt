@@ -1,0 +1,13 @@
+/* Faglig fordybelse, med Læsebliks eksisterende farver og typografi. */
+.lb-deep-reading{padding:28px 30px;margin:34px 0;background:#f4f8f2;border-top:3px solid #70947b;border-bottom:1px solid #d5e3d5;color:#304b3c}
+.lb-deep-reading h2{font-size:clamp(1.6rem,2.5vw,2.25rem);line-height:1.2;max-width:30ch;margin:12px 0 15px;hyphens:none;overflow-wrap:normal}
+.lb-deep-reading p{max-width:72ch;line-height:1.75}
+.lb-deep-reading .eyebrow{font-size:.73rem;letter-spacing:.08em}
+.lb-deep-reading ol{padding-left:24px;margin:20px 0}.lb-deep-reading li{padding-left:5px;margin:11px 0;line-height:1.68}
+.lb-deep-reading .reading-sources{border-top:1px solid #d5e3d5;padding-top:13px;font-size:.9rem}
+.lb-deep-reading .reading-sources a{display:block;margin:8px 0;text-underline-offset:3px}
+.lb-deep-reading .source-note{font-size:.83rem;color:#57705f}
+.lb-deep-reading .deep-next{margin-top:20px;font-weight:700}
+.lb-decision-reason{margin:20px 0}.lb-decision-reason label{display:block;font-weight:700;margin-bottom:8px}.lb-decision-reason textarea{display:block;width:100%;font:inherit;min-height:110px;padding:13px;border:1px solid #b6cdbb;border-radius:10px;color:#2c4e3b;line-height:1.6}
+.lb-decision-reason textarea:focus-visible{outline:3px solid #9d8aa6;outline-offset:2px}
+@media(max-width:620px){.lb-deep-reading{padding:21px 19px;margin:25px 0}.lb-deep-reading h2{font-size:1.65rem}}

@@ -20,7 +20,12 @@
    const selected=document.querySelector('input[name="decision"]:checked');
    const dest=document.querySelector('#decision-feedback');
    if(!selected){dest.textContent='Vælg først et svar.';return;}
-   const messages={a:'Målrettet undervisning i ordafkodning kan være et relevant valg. Her bygger indsatsen dog på en enkelt kort situation, og der mangler elevens perspektiv samt oplysninger om læsning og deltagelse i den øvrige undervisning.',b:'Denne plan giver det mest dækkende udgangspunkt: Den undersøger afkodning i flere situationer, inddrager elevens oplevelse og følger både læseudvikling og aktiv deltagelse. Hvilken del ville du prioritere først, og hvorfor?',c:'Oplæsningsstøtte kan give adgang til fagets indhold og styrke deltagelsen. En samlet plan skal også undersøge elevens ordafkodning, så valget af læseundervisning bliver fagligt begrundet.'};
+   const reason=document.querySelector('#decision-reason').value.trim();
+   if(reason.length<45){dest.textContent='Begrund først dit valg med mindst 45 tegn. Hvad kan undersøgelsen vise, og hvilke spørgsmål står åbne?';return;}
+   const messages={
+     a:'Du prioriterer præcision i ordlæsningen. Det kan belyse en hypotese om usikker afkodning. Undersøg også den sproglige forståelse og elevens adgang til det faglige indhold.',
+     b:'Du sammenligner forståelse under forskellige læsebetingelser. Det kan være nyttigt, hvis teksternes indhold og krav er sammenlignelige. En særskilt ordlæsningsobservation er stadig relevant.',
+     c:'Du undersøger undervisningens krav og muligheder for deltagelse. Det kan give vigtig kontekst, men afklarer ikke alene elevens ordafkodning. Du må supplere med en målrettet læseobservation.'};
    dest.textContent=messages[selected.value];
  });
  const form=document.querySelector('#analysis-builder');

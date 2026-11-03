@@ -310,3 +310,10 @@ body.lb-area-profil .lb-page-hero-copy h1 {
 /* Store overskrifter brydes ved ordmellemrum frem for midt i danske fagord. */
 .lb-refresh .page-hero h1,.lb-refresh .lb-page-hero-copy h1{hyphens:none;-webkit-hyphens:none;overflow-wrap:normal;word-break:normal}
 @media(max-width:580px){.lb-refresh .page-hero h1,.lb-refresh .lb-page-hero-copy h1{font-size:clamp(2rem,8vw,2.8rem)}}
+
+/* Fagligt casevalg: læsbare svar med plads til begrundelser. */
+.lb-v4-case-options{display:grid;gap:10px;max-width:760px;margin:17px 0 14px}
+.lb-v4-case-options button{white-space:normal;text-align:left;justify-content:flex-start;line-height:1.52;padding:13px 16px;min-height:56px;border-radius:11px;hyphens:none;overflow-wrap:normal}
+.lb-v4-case-options button[aria-pressed="true"]{border-color:#537d66;box-shadow:inset 3px 0 0 #537d66;background:#f2f8f1}
+.lb-v4-faglig{margin-top:22px}
+.lb-v4-faglig p{margin-top:9px;line-height:1.65}
