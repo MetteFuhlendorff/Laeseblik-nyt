@@ -30,7 +30,7 @@
 .research-table td:first-child{width:31%;font-weight:700;color:#395b4c;}
 @media(max-width:580px){.research-table table{min-width:0;}.research-table td,.research-table th{padding:11px;font-size:.9rem;}}
 
-/* Analyseværksted: tilgængelige kontroller og mobilvisning */
+/* Analyseværksted: tilgængelige felter og mobilvisning */
 .method-interactive{border:1px solid #dfe7de;border-radius:20px;padding:25px;background:#fafcf9;margin:23px 0}
 .statement-step,.decision-choices{border:1px solid #e2e6e1;border-radius:14px;padding:20px;margin:0 0 18px;background:#fff;min-width:0}
 .statement-step legend,.decision-choices legend{color:#2e4c3d;font-size:1rem;line-height:1.6;font-weight:650;padding:0 8px;white-space:normal}
