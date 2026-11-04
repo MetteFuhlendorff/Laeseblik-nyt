@@ -317,3 +317,21 @@ body.lb-area-profil .lb-page-hero-copy h1 {
 .lb-v4-case-options button[aria-pressed="true"]{border-color:#537d66;box-shadow:inset 3px 0 0 #537d66;background:#f2f8f1}
 .lb-v4-faglig{margin-top:22px}
 .lb-v4-faglig p{margin-top:9px;line-height:1.65}
+
+
+/* Læseblik: illustrationer skal vises i fulde proportioner, ikke beskæres som fotografier. */
+.lb-page-photo.lb-readable-diagram{aspect-ratio:auto!important;height:auto!important;max-height:none!important;overflow:visible!important;background:transparent!important;box-shadow:none!important;border-radius:0!important;min-width:0}
+.lb-readable-diagram .lb-diagram-image-link{display:block;width:100%;aspect-ratio:20/13;border:1px solid #c9d8cd;border-radius:18px;overflow:hidden;background:#eef5ee;box-shadow:0 7px 20px rgba(24,58,40,.08)}
+.lb-readable-diagram .lb-diagram-image-link:focus-visible{outline:3px solid #7c9f86;outline-offset:3px}
+.lb-readable-diagram .lb-diagram-image-link img{display:block;width:100%!important;height:100%!important;max-width:none!important;object-fit:contain!important;object-position:center!important}
+.lb-diagram-caption{padding:10px 2px 0;display:flex;flex-wrap:wrap;gap:4px 12px;justify-content:space-between;align-items:baseline;font-size:.85rem;line-height:1.5;color:#496355}
+.lb-diagram-caption span{min-width:0;flex:1 1 150px}
+.lb-diagram-caption a{flex:0 0 auto;margin:0;color:#275a46;font-weight:650;text-decoration:underline;text-underline-offset:3px}
+.lb-diagram-caption a:hover{color:#173d2f}
+/* Fuld diagramvisning også i de mindre billedfelter og studiekort. */
+.lb-pathway-visual img[src$=".svg"],.lb-context-photo img[src$=".svg"],.story-cover img[src$=".svg"],.lab-newvisual img[src$=".svg"],.book-cover[src$=".svg"],.landing-secondary-img[src$=".svg"]{object-fit:contain!important;object-position:center!important;background:#eef5ee}
+.lb-context-photo img[src$=".svg"]{aspect-ratio:20/13!important;height:auto!important}
+.lb-page-hero-grid .lb-mette-hero-photo img[src$=".webp"]{object-fit:cover!important;object-position:center 18%!important}
+/* Transparent, restrained disclosure, positioned after the normal footer information. */
+.lb-ai-disclosure{max-width:88ch;margin:16px 0 0;padding-top:13px;border-top:1px solid rgba(255,255,255,.16);font-size:.79rem;line-height:1.65;color:#d5e2d8}
+.lb-reader-simple-footer .lb-ai-disclosure{max-width:75ch;margin:14px auto 0;padding:12px 20px 0;text-align:center} .lab-modern-footer .lb-ai-disclosure{max-width:75ch;margin:18px auto 0;text-align:center;color:#d5e2d8} @media(max-width:580px){.lb-diagram-caption{font-size:.85rem;gap:6px}.lb-diagram-caption a{display:inline-flex;min-height:36px;align-items:center}.lb-page-photo.lb-readable-diagram{max-height:none!important;aspect-ratio:auto!important}}
